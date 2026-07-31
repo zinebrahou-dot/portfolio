@@ -6,7 +6,7 @@
 
 <title>Module 3 Solution</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
  
 <style>body{
     font-family: Arial, sans-serif;
@@ -112,12 +112,27 @@
     </div>
 
 </div>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script>
+$(function () {
 
+    // Toggle du menu burger (en plus des data-attributes Bootstrap)
+    $('.navbar-toggle').on('click', function () {
+        $(this).toggleClass('collapsed open');
+        $('#menu').collapse('toggle');
+    });
 
+    // Ferme le menu automatiquement apres un clic sur un lien (utile en mobile)
+    $('#menu a').on('click', function () {
+        if ($('#menu').hasClass('in')) {
+            $('#menu').collapse('hide');
+            $('.navbar-toggle').addClass('collapsed').removeClass('open');
+        }
+    });
 
-
+});
+</script>
 </body>
 </html>
 
